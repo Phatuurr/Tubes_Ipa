@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="glass-card p-8 rounded-[3.5rem] hover:bg-white transition-all duration-500 group border-white/10" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-3xl mb-4">🏠</div>
+                    <div class="text-3xl mb-4">🏠-</div>
                     <h4 class="text-white group-hover:text-premium-blue font-black uppercase italic text-sm tracking-widest mb-2">Berdaya</h4>
                     <p class="text-white/40 group-hover:text-premium-blue/60 text-[10px] leading-relaxed">Fokus pada pemberdayaan ekonomi dan kewirausahaan pemuda[cite: 40].</p>
                 </div>
