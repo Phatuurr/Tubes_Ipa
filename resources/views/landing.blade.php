@@ -219,21 +219,45 @@
             </div>
 
             <div class="bg-premium-blue p-12 lg:p-20 rounded-[5rem] shadow-2xl relative" data-aos="fade-left">
-                <form class="space-y-8">
-                    <div class="space-y-2 border-b border-white/10 pb-4">
-                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-averroes-yellow">Full Name</label>
-                        <input type="text" placeholder="John Doe" class="w-full bg-transparent text-white outline-none placeholder:text-white/20 font-bold italic text-xl">
+                @if ($errors->any())
+                    <div class="mb-6 p-4 bg-red-500/20 border border-red-500 text-red-400 rounded-2xl text-sm italic">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>• {{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <div class="space-y-2 border-b border-white/10 pb-4">
-                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-averroes-yellow">Email Address</label>
-                        <input type="email" placeholder="hello@company.com" class="w-full bg-transparent text-white outline-none placeholder:text-white/20 font-bold italic text-xl">
+                @endif
+
+                @if(session('success'))
+                    <div class="mb-6 p-4 bg-averroes-yellow/20 border border-averroes-yellow text-averroes-yellow rounded-2xl text-sm italic animate-pulse">
+                        {{ session('success') }}
                     </div>
-                    <div class="space-y-2 border-b border-white/10 pb-4">
-                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-averroes-yellow">Message</label>
-                        <textarea placeholder="Tell us about your mission..." rows="3" class="w-full bg-transparent text-white outline-none placeholder:text-white/20 font-bold italic text-xl resize-none"></textarea>
-                    </div>
-                    <button class="w-full py-6 bg-averroes-yellow text-premium-blue font-black rounded-3xl hover:bg-white transition-all uppercase italic tracking-[0.2em] shadow-xl">Send Inquiry</button>
-                </form>
+                @endif
+                <form action="{{ route('contact.send') }}" method="POST" class="space-y-8">
+                @csrf <div class="space-y-2 border-b border-white/10 pb-4">
+                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-averroes-yellow">Full Name</label>
+                    <input type="text" name="name" required placeholder="John Doe" 
+                        class="w-full bg-transparent text-white outline-none placeholder:text-white/20 font-bold italic text-xl">
+                </div>
+
+                <div class="space-y-2 border-b border-white/10 pb-4">
+                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-averroes-yellow">Email Address</label>
+                    <input type="email" name="email" required placeholder="hello@company.com" 
+                        class="w-full bg-transparent text-white outline-none placeholder:text-white/20 font-bold italic text-xl">
+                </div>
+
+                <div class="space-y-2 border-b border-white/10 pb-4">
+                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-averroes-yellow">Message</label>
+                    <textarea name="message" required placeholder="Tell us about your mission..." rows="3" 
+                            class="w-full bg-transparent text-white outline-none placeholder:text-white/20 font-bold italic text-xl resize-none"></textarea>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-6 bg-averroes-yellow text-premium-blue font-black rounded-3xl hover:bg-white transition-all uppercase italic tracking-[0.2em] shadow-xl">
+                    Send Inquiry
+                </button>
+            </form>
             </div>
         </div>
     </section>
