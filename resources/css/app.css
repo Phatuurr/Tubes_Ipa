@@ -1,25 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-    /* Mendefinisikan warna identitas Averroes Community */
-    --color-navy: #0A192F;
-    --color-yellow-averroes: #FACC15;
+    --font-sans: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui;
+    
+    /* Warna Dominan Baru */
+    --color-premium-blue: #053477;
+    --color-averroes-yellow: #FACC15;
 }
 
-/* Custom CSS untuk efek Glassmorphism pada Navbar */
-.glass-nav {
-    background: rgba(10, 25, 47, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+/* Custom Premium Effects */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Animasi mengapung untuk elemen visual */
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+.text-gradient {
+    background: linear-gradient(to right, #ffffff, #FACC15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.animate-float {
-    animation: floating 4s ease-in-out infinite;
+.bento-inner {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-inner:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
